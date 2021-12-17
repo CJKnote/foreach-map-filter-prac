@@ -197,7 +197,21 @@ Examples:
     removeVowels('ZZZZZZ') // ('zzzzzz')
 */
 
-function removeVowels(str) {}
+function removeVowels(str) {
+    str = str.toLowerCase();
+    let stringArray = str.split("");
+    let noVowels = stringArray.filter(function(val){
+        return('aeiou'.indexOf(val)=== -1);
+    });
+
+    //put the array back to a string
+    let noVowelStr = "";
+    noVowels.forEach(function(val){
+        noVowelStr+=val;
+    });
+
+    return noVowelStr;
+}
 
 /*
 Write a function called doubleOddNumbers which accepts an array and returns a new array with all of the odd numbers doubled (HINT - you can use map and filter to double and then filter the odd numbers).
@@ -207,4 +221,12 @@ Examples:
     doubleOddNumbers([4,4,4,4,4]) // []
 */
 
-function doubleOddNumbers(arr) {}
+function doubleOddNumbers(arr) {
+    let oddArray = arr.filter(function(val){
+        return (val%2===1);
+    });
+
+    return oddArray.map(function(val){
+        return val*2;
+    });
+}
